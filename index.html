@@ -4,6 +4,11 @@
 		name="viewport"
 		content="minimum-scale=1, maximum-scale=1, initial-scale=1, user-scalable=no, interactive-widget=overlays-content"
 	/>
+	<style>
+		body.incomplete {
+			display: none;
+		}
+	</style>
 	<link href="style.css" rel="stylesheet" />
 	<script type="text/javascript" src="main.js" defer></script>
 	<style>
@@ -21,7 +26,7 @@
 		}
 	</style>
 </head>
-<body>
+<body class="incomplete">
 	<span id="clock">Loading...</span>
 	<p><button type="button" id="reset">🔄 Reset</button></p>
 	<fieldset>

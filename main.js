@@ -32,21 +32,21 @@ reset.addEventListener("click", () => {
 
 let clock = document.getElementById("clock");
 
-if (clock) {
-	setInterval(() => {
-		clock.innerText = new Date().toLocaleTimeString("en-US", {
-			hour12: true,
-			weekday: "long",
-			month: "long",
-			day: "numeric",
-			//dayPeriod: "short",
-			hour: "numeric",
-			minute: "2-digit",
-		});
+setInterval(() => {
+	clock.innerText = new Date().toLocaleTimeString("en-US", {
+		hour12: true,
+		weekday: "long",
+		month: "long",
+		day: "numeric",
+		//dayPeriod: "short",
+		hour: "numeric",
+		minute: "2-digit",
+	});
 
-		if (Android && !Android.isCharging()) {
-			clock.innerText =
-				Android.getBatteryLevel() + "% Battery; " + clock.innerText;
-		}
-	}, 1000);
-}
+	if (Android && !Android.isCharging()) {
+		clock.innerText =
+			Android.getBatteryLevel() + "% Battery; " + clock.innerText;
+	}
+}, 1000);
+
+document.body.classList.remove("incomplete");
