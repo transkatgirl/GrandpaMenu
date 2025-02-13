@@ -43,6 +43,7 @@ setInterval(() => {
 		minute: "2-digit",
 	});
 
+	// https://help.android-kiosk.com/en/article/js-device-information-1yc4qmw/
 	if (Android && !Android.isCharging()) {
 		clock.innerText =
 			Android.getBatteryLevel() + "% Battery; " + clock.innerText;
