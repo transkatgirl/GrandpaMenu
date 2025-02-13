@@ -1,0 +1,94 @@
+@font-face {
+	font-family: AtkinsonHyperlegible;
+	src: url("fonts/AtkinsonHyperlegible-Regular.ttf");
+}
+
+@font-face {
+	font-family: AtkinsonHyperlegible;
+	src: url("fonts/AtkinsonHyperlegible-Bold.ttf");
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: AtkinsonHyperlegible;
+	src: url("fonts/AtkinsonHyperlegible-Italic.ttf");
+	font-style: italic;
+}
+
+@font-face {
+	font-family: AtkinsonHyperlegible;
+	src: url("fonts/AtkinsonHyperlegible-BoldItalic.ttf");
+	font-weight: bold;
+	font-style: italic;
+}
+
+body {
+	background-color: aliceblue;
+	font: 2rem/1.2 AtkinsonHyperlegible;
+	margin: 2rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+	font-size: 1em;
+}
+
+#clock {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+}
+
+fieldset {
+	padding: 1em;
+	background-color: beige;
+	border: 0.075em solid black;
+	margin-bottom: 1em;
+}
+
+fieldset > :first-child {
+	margin: 0;
+}
+
+fieldset p,
+fieldset h2 {
+	margin-bottom: 0;
+}
+
+textarea {
+	font-size: 1.5em;
+	margin-top: 0.75em;
+	height: 7.5em;
+	width: 100%;
+	resize: vertical;
+}
+
+button[type="button"] {
+	font-size: 1em;
+	border: 0.15em solid black;
+	padding: 0.2em;
+}
+
+button[type="button"][aria-pressed] {
+	font-size: 1.1em;
+	margin-top: 0.75em;
+	margin-right: 0.75em;
+}
+
+button[type="button"][aria-pressed="false"] {
+	background-color: white;
+}
+
+button[type="button"][aria-pressed="true"] {
+	background-color: orange;
+	font-weight: bold;
+}
+
+fieldset:has(button[type="button"][aria-pressed="true"]) {
+	border-width: 0.3em;
+}

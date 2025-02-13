@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<head>
+	<meta
+		name="viewport"
+		content="minimum-scale=1, maximum-scale=1, initial-scale=1, user-scalable=no, interactive-widget=overlays-content"
+	/>
+	<link href="style.css" rel="stylesheet" />
+	<script type="text/javascript" src="main.js" defer></script>
+	<style>
+		body:has(#reposition[aria-pressed="false"]) #movewhere {
+			display: none;
+		}
+
+		body:has(#pain[aria-pressed="false"]) #painhowmuch,
+		body:not(:has(.sensation[aria-pressed="true"])) #sensationwhere {
+			display: none;
+		}
+
+		body:has(#saysomething[aria-pressed="false"]) #freeform {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<span id="clock">Loading...</span>
+	<p><button type="button" id="reset">🔄 Reset</button></p>
+	<fieldset>
+		<p>Responses</p>
+		<button type="button" aria-pressed="false">✔️ Yes</button>
+		<button type="button" aria-pressed="false">❌ No</button>
+		<button type="button" aria-pressed="false">❓ Don't Know</button>
+		<button type="button" aria-pressed="false">🔊 Speak Louder</button>
+		<br />
+		<button type="button" aria-pressed="false">👍 Like That</button>
+		<button type="button" aria-pressed="false">👎 Don't Like</button>
+		<button type="button" aria-pressed="false">😵‍💫 What's Happening?</button>
+		<br />
+		<button type="button" aria-pressed="false">
+			🕰️ When? / What Time?
+		</button>
+		<button type="button" aria-pressed="false">📋 How Am I Doing?</button>
+		<br />
+		<button type="button" aria-pressed="false">🙏 Thank You</button>
+		<button type="button" aria-pressed="false">❤️ I Love You</button>
+	</fieldset>
+	<fieldset>
+		<h2>I want...</h2>
+		<button type="button" aria-pressed="false">📺 Television</button>
+		<button type="button" aria-pressed="false">🎵 Music</button>
+		<button type="button" aria-pressed="false">💤 To Sleep</button>
+		<button type="button" aria-pressed="false">💡 Lights On</button>
+		<br />
+		<button type="button" aria-pressed="false">👓 Glasses</button>
+		<button type="button" aria-pressed="false">Pillow</button>
+		<button type="button" aria-pressed="false">Blanket</button>
+		<button type="button" aria-pressed="false">💧 Water/Ice</button>
+		<br />
+		<p>Care</p>
+		<button type="button" aria-pressed="false">💊 Pain Medication</button>
+		<button type="button" aria-pressed="false">🧤 Remove Restraints</button>
+		<br />
+		<button type="button" aria-pressed="false">Suctioned</button>
+		<button type="button" aria-pressed="false">Moisturized</button>
+		<br />
+		<button
+			type="button"
+			aria-pressed="false"
+			id="reposition"
+			scrollto="movewhere"
+		>
+			↕️ Repositioned
+		</button>
+		<button type="button" aria-pressed="false">🚽 Bathroom</button>
+		<br />
+		<button type="button" aria-pressed="false">Cool Cloth</button>
+		<br />
+		<p>Personal Care</p>
+		<button type="button" aria-pressed="false">🪥 Mouth Cleaned</button>
+		<button type="button" aria-pressed="false">🚿 Face Washed</button>
+		<button type="button" aria-pressed="false">🪮 Hair Combed</button>
+		<button type="button" aria-pressed="false">🪒 Hair Shaved</button>
+		<p>People</p>
+		<button type="button" aria-pressed="false">🧑‍🧑‍🧒 Family</button>
+		<button type="button" aria-pressed="false">👩‍⚕️ Nurse</button>
+		<button type="button" aria-pressed="false">👨‍⚕️ Doctor</button>
+		<p>Social / Emotional</p>
+		<button type="button" aria-pressed="false">🤝 To Be Comforted</button>
+		<button type="button" aria-pressed="false">🏠 To Go Home</button>
+		<br />
+		<button
+			type="button"
+			aria-pressed="false"
+			id="saysomething"
+			scrollto="freeform"
+		>
+			🗣️ To Say Something
+		</button>
+		<button type="button" aria-pressed="false">⏲️ Come Back Later</button>
+	</fieldset>
+	<fieldset id="movewhere">
+		<h2>Please move <u>me</u>...</h2>
+		<button type="button" aria-pressed="false">⤴️ Up</button>
+		<button type="button" aria-pressed="false">⤵️ Down</button>
+		<br />
+		<button type="button" aria-pressed="false">↩️ Turn Left</button>
+		<button type="button" aria-pressed="false">↪️ Turn Right</button>
+		<button type="button" aria-pressed="false">⬅️ Left</button>
+		<button type="button" aria-pressed="false">➡️ Right</button>
+		<h2>Please move <u>the bed</u>...</h2>
+		<button type="button" aria-pressed="false">⤴️ Up</button>
+		<button type="button" aria-pressed="false">⤵️ Down</button>
+		<button type="button" aria-pressed="false">↩️ Left</button>
+		<button type="button" aria-pressed="false">↪️ Right</button>
+		<h2>I want to...</h2>
+		<button type="button" aria-pressed="false">🛏️ Lie Down</button>
+		<button type="button" aria-pressed="false">🪑 Sit Up</button>
+		<button type="button" aria-pressed="false">Get Up</button>
+	</fieldset>
+	<fieldset>
+		<h2>I am... / I feel...</h2>
+		<p>Sensations</p>
+		<button
+			type="button"
+			aria-pressed="false"
+			id="pain"
+			class="sensation"
+			scrollto="painhowmuch"
+		>
+			😫 In Pain
+		</button>
+		<button type="button" aria-pressed="false">😮‍💨 Short of Breath</button>
+		<button type="button" aria-pressed="false">🤢 Sick</button>
+		<button type="button" aria-pressed="false">😵‍💫 Dizzy</button>
+		<br />
+		<button type="button" aria-pressed="false">🍴 Hungry</button>
+		<button type="button" aria-pressed="false">💧 Thirsty</button>
+		<button type="button" aria-pressed="false">❄️ Too Cold</button>
+		<button type="button" aria-pressed="false">🔥 Too Hot</button>
+		<br />
+		<button
+			type="button"
+			aria-pressed="false"
+			class="sensation"
+			scrollto="sensationwhere"
+		>
+			Itchy
+		</button>
+		<button
+			type="button"
+			aria-pressed="false"
+			class="sensation"
+			scrollto="sensationwhere"
+		>
+			Numb
+		</button>
+		<button type="button" aria-pressed="false" class="sensation">
+			😬 Uncomfortable
+		</button>
+		<p>Emotions</p>
+		<button type="button" aria-pressed="false">😰 Afraid</button>
+		<button type="button" aria-pressed="false">😢 Sad</button>
+		<button type="button" aria-pressed="false">🥱 Tired</button>
+		<br />
+		<button type="button" aria-pressed="false">😵‍💫 Confused</button>
+		<button type="button" aria-pressed="false">😫 Frustrated</button>
+		<button type="button" aria-pressed="false">😡 Angry</button>
+	</fieldset>
+	<fieldset id="painhowmuch">
+		<h2><u>How much</u> does it hurt?</h2>
+		<button type="button" aria-pressed="false">😐 None</button>
+		<button type="button" aria-pressed="false">☹️ A little</button>
+		<button type="button" aria-pressed="false">😢 Moderately</button>
+		<button type="button" aria-pressed="false">😭 A lot</button>
+		<h2>Do you want pain medication?</h2>
+		<button type="button" aria-pressed="false">✔️ Yes</button>
+		<button type="button" aria-pressed="false">❌ No</button>
+		<button type="button" aria-pressed="false">❓ Unsure</button>
+	</fieldset>
+	<fieldset id="sensationwhere">
+		<h2><u>Where</u> is it?</h2>
+		<button type="button" aria-pressed="false">All Over</button>
+		<br />
+		<button type="button" aria-pressed="false">Head</button>
+		<button type="button" aria-pressed="false">Neck</button>
+		<br />
+		<button type="button" aria-pressed="false">Chest</button>
+		<button type="button" aria-pressed="false">Abdomen</button>
+		<button type="button" aria-pressed="false">Pelvic/Groin</button>
+		<br />
+		<button type="button" aria-pressed="false">Shoulders</button>
+		<button type="button" aria-pressed="false">Back</button>
+		<button type="button" aria-pressed="false">Buttocks</button>
+		<br />
+		<button type="button" aria-pressed="false">Left Arm</button>
+		<button type="button" aria-pressed="false">Right Arm</button>
+		<button type="button" aria-pressed="false">Left Hand</button>
+		<button type="button" aria-pressed="false">Right Hand</button>
+		<br />
+		<button type="button" aria-pressed="false">Left Leg</button>
+		<button type="button" aria-pressed="false">Right Leg</button>
+		<button type="button" aria-pressed="false">Left Foot</button>
+		<button type="button" aria-pressed="false">Right Foot</button>
+		<h2><u>What</u> does it feel like?</h2>
+		<button type="button" aria-pressed="false">Dull</button>
+		<button type="button" aria-pressed="false">Sharp</button>
+		<button type="button" aria-pressed="false">Radiating</button>
+		<button type="button" aria-pressed="false">Itchy</button>
+		<br />
+		<button type="button" aria-pressed="false">Stings</button>
+		<button type="button" aria-pressed="false">Aches</button>
+		<button type="button" aria-pressed="false">Burns</button>
+		<button type="button" aria-pressed="false">Numb</button>
+	</fieldset>
+	<fieldset id="freeform">
+		<p>Say Anything...</p>
+		<textarea></textarea>
+	</fieldset>
+</body>
