@@ -26,6 +26,7 @@ body {
 	background-color: aliceblue;
 	font: 2rem/1.2 AtkinsonHyperlegible;
 	margin: 2rem;
+	margin-bottom: 50vh;
 }
 
 h1,
@@ -42,6 +43,19 @@ h6 {
 	position: absolute;
 	top: 2rem;
 	right: 2rem;
+}
+
+#scroll {
+	position: fixed;
+	bottom: calc(2rem);
+	right: 2rem;
+	padding: 0.75em;
+	background-color: lavender;
+	border: 0.075em solid black;
+}
+
+#scroll button[type="button"]:not(:last-of-type) {
+	margin-bottom: 0.75em;
 }
 
 fieldset {

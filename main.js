@@ -19,15 +19,21 @@ document.body.addEventListener("click", (event) => {
 	}
 });
 
-let reset = document.getElementById("reset");
-
-reset.addEventListener("click", () => {
+document.getElementById("reset").addEventListener("click", () => {
 	document.body
 		.querySelectorAll('button[type="button"][aria-pressed="true"]')
 		.forEach((element) => element.setAttribute("aria-pressed", false));
 	document.body
 		.querySelectorAll("textarea")
 		.forEach((element) => (element.value = ""));
+});
+
+document.getElementById("scrollup").addEventListener("click", () => {
+	window.scrollBy(0, -(window.innerHeight / 2));
+});
+
+document.getElementById("scrolldown").addEventListener("click", () => {
+	window.scrollBy(0, window.innerHeight / 2);
 });
 
 let clock = document.getElementById("clock");
