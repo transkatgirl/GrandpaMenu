@@ -54,6 +54,11 @@ h6 {
 	border: 0.075em solid black;
 }
 
+#scroll p {
+	margin: 0;
+	margin-bottom: 0.75em;
+}
+
 #scroll button[type="button"]:not(:last-of-type) {
 	margin-bottom: 0.75em;
 }
