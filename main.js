@@ -17,6 +17,10 @@ document.body.addEventListener("click", (event) => {
 			}
 		}
 	}
+
+	if (!window.Android) {
+		document.documentElement.requestFullscreen();
+	}
 });
 
 document.getElementById("reset").addEventListener("click", () => {
