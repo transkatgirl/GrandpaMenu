@@ -6,4 +6,6 @@ This application should be considered a prototype rather than something ready fo
 
 ## Setup
 
-This application is a website meant to be loaded in [Android Kiosk](https://android-kiosk.com), however, it should be compatible with other browsers.
+This application is a website meant to be loaded in [Android Kiosk](https://android-kiosk.com). However, it should be compatible with other browsers.
+
+It can be accessed at https://transkatgirl.github.io/GrandpaMenu/. If you would like to add additional customizations, you will need to fork the repository and then host it on a webserver.
