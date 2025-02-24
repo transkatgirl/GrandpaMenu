@@ -91,6 +91,7 @@ button[type="button"] {
 	font-size: 1em;
 	border: 0.15em solid black;
 	padding: 0.2em;
+	color: black;
 }
 
 button[type="button"][aria-pressed] {
