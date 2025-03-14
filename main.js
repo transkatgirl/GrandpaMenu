@@ -46,6 +46,15 @@ document.getElementById("scrolldown").addEventListener("click", () => {
 	window.scrollBy(0, window.innerHeight / 2);
 });
 
+let input = document.getElementById("input");
+
+if (input) {
+	document.getElementById("speak").addEventListener("click", () => {
+		let utterance = new SpeechSynthesisUtterance(input.value);
+		speechSynthesis.speak(utterance);
+	});
+}
+
 let clock = document.getElementById("clock");
 
 setInterval(() => {
