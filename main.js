@@ -15,6 +15,12 @@ document.body.addEventListener("click", (event) => {
 					.getElementById(target.getAttribute("scrollto"))
 					.scrollIntoView();
 			}
+			if (target.hasAttribute("speak")) {
+				let utterance = new SpeechSynthesisUtterance(
+					target.getAttribute("speak")
+				);
+				speechSynthesis.speak(utterance);
+			}
 		}
 	}
 
