@@ -1,3 +1,5 @@
+let wakeLock = null;
+
 document.body.addEventListener("click", (event) => {
 	let target = event.target;
 
@@ -24,8 +26,27 @@ document.body.addEventListener("click", (event) => {
 		}
 	}
 
-	if (!window.Android) {
-		document.documentElement.requestFullscreen();
+	if (!window.Android && document.fullscreenElement === null) {
+		document.documentElement.requestFullscreen().then(() => {
+			console.log("entered fullscreen");
+
+			if ("wakeLock" in navigator) {
+				if (wakeLock === null) {
+					navigator.wakeLock.request("screen").then((lock) => {
+						wakeLock = lock;
+						console.log(wakeLock);
+					});
+				} else {
+					wakeLock.release().then(() => {
+						console.log("wakeLock cleared");
+						navigator.wakeLock.request("screen").then((lock) => {
+							wakeLock = lock;
+							console.log(wakeLock);
+						});
+					});
+				}
+			}
+		});
 	}
 });
 
