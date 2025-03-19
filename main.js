@@ -89,12 +89,21 @@ setInterval(() => {
 		minute: "2-digit",
 	});
 
-	// https://help.android-kiosk.com/en/article/js-device-information-1yc4qmw/
-	if (Android && !Android.isCharging()) {
+	if (window.Android && !Android.isCharging()) {
+		// https://help.android-kiosk.com/en/article/js-device-information-1yc4qmw/
 		clock.innerText =
 			Math.round(Android.getBatteryLevel()) +
 			"% Battery; " +
 			clock.innerText;
+	} else if (navigator.getBattery) {
+		navigator.getBattery().then((battery) => {
+			if (!battery.charging) {
+				clock.innerText =
+					Math.round(battery.level * 100) +
+					"% Battery; " +
+					clock.innerText;
+			}
+		});
 	}
 }, 1000);
 
